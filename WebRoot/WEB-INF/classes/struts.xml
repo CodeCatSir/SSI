@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN" "struts-2.1.7.dtd" >
+<struts>
+	<package name="user" extends="struts-default" namespace="/zy">
+		<action name="login" class="com.zy.action.UserAction" method="login">
+			<result name="success" type="redirect">/WEB-INF/success.jsp</result>
+			<result name="error">/WEB-INF/error.jsp</result>
+		</action>
+	</package>
+
+</struts>

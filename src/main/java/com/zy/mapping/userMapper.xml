@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org//dtd//mybatis-3-mapper.dtd">
+<mapper namespace="com.zy.dao.UserMapper">
+	<resultMap type="com.zy.domain.User" id="basicResultMap">
+		<id column="t_id" property="id" jdbcType="INTEGER"/>
+		<result column="t_userid" property="userId" jdbcType="VARCHAR"/>
+		<result column="t_remindflag" property="remindFlag" jdbcType="BIT"/>
+	</resultMap>
+	<insert id="insert" parameterType="com.zy.domain.User">
+		insert into t_user(t_id,t_userid,t_remindflag)
+		values(
+		{#id,jdbcType=INTEGER},
+		{#userId,jdbcType=VARCHAR}
+		{#remindFlag,jdbcType=BIT}
+		)
+	</insert>
+	<select id="getUserById" parameterType="STRING" resultType="com.zy.domain.User">
+		select * from t_user where t_userid = {#userId,jdbcType=VARCHAR}
+	</select>
+</mapper>
